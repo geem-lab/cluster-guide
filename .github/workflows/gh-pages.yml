@@ -1,15 +1,38 @@
-name: Build and Deploy
-on: [push]
-jobs:
-  build-and-deploy:
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
+name: github pages
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.0
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-20.04
+        concurrency:
+            group: ${{ github.workflow }}-${{ github.ref }}
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup mdBook
+              uses: peaceiris/actions-mdbook@v1
+              with:
+                  mdbook-version: "0.4.11"
+
+            - name: Cache Cargo
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      ~/.cargo
+                      target
+                  key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('**/*.toml') }}
+
+            - run: cargo install mdbook-linkcheck mdbook-mermaid
+            - run: mdbook build
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              if: ${{ github.ref == 'refs/heads/main' }}
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./book/html
