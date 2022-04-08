@@ -1,0 +1,19 @@
+[book]
+authors = ["Letícia Maria Pequeno Madureira and Vinicius Capriles Port"]
+description = "The most useful reources of our cluster"
+language = "en"
+multilingual = false
+src = "src"
+title = "cluster documentation"
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+git-repository-url = "https://github.com/geem-lab/cluster-guide"
+mathjax-support = true
+site-url = "/cluster-guide"
+
+[output.linkcheck]
+
+[preprocessor]
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
