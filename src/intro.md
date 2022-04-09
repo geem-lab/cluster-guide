@@ -2,16 +2,12 @@
 
 # Cluster guide
 
-:sunny: :ghost:  Welcome to the jupiter cluster guide! :smile: :brazil:
+Welcome to the jupiter cluster guide!
 
 This is the documentation of our cluster and it's resources. 
 
-## Jump to 
+To learn the basics, check out [logging in](./src/login.md) and [transfering files](./src/syncing.md).
 
-- [Logging in and working in the cluster](./src/login.md)
-- [Softwares available](./softwares.md)
-- [Transfering files](./src/syncing.md)
-- [Debugging errors and failed jobs](./src/debugging.md)
-- [Other resources](./src/learn.md)
-- [Contributing](./src/contributing.md)
+To see our available software and how to use them, check out the [softwares](./src/sofwares.md) page.
 
+If you feel like this site could be better, please [contribute](./src/contributing.md).
