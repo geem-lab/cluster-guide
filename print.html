@@ -206,6 +206,9 @@ end
 <p>For istance, if you want to send a <code>opt.inp</code> file located at <code>~/geem/projects</code> to a <code>/home/your_user/projects/</code> folder located in jupiter:</p>
 <pre><code class="language-console">$ scp ~/geem/projects/opt.inp jupiter:/home/your_user/projects/ 
 </code></pre>
+<p>This comes from:</p>
+<pre><code class="language-console">$ scp -P 2222 ~/geem/projects/opt.inp USERNAME@150.162.31.2:/home/your_user/projects/ 
+</code></pre>
 <p>Or the other way around, from jupiter to your local folder:</p>
 <pre><code class="language-console">$ scp jupiter:/home/your_user/projects/opt.out ~/geem/projects/
 </code></pre>
