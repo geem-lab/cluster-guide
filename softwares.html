@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="softwares.html" class="active"><strong aria-hidden="true">1.</strong> Softwares available</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="src/login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html" class="active"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="src/syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="src/debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="src/learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="src/contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -152,15 +152,39 @@
 <ul>
 <li>ORCA</li>
 </ul>
+<p>Usage: </p>
+<p>In your $HOME/bin folder in <a href="">jupiter</a> there should already be a <code>job</code> script that you can use directly on yout .inp files.</p>
+<p>In your .inp it should be specified both the <code>nprocs</code> and <code>maxcore</code> keywords, i.e. for a h2o_opt.inp file:</p>
+<pre><code>! HF def2-svp Opt 
+
+%pal
+nprocs 8 
+end
+
+%maxcore 2000
+
+*xyzfile h2o.xyz 0 1 
+</code></pre>
+<p>Any doubts on the input please check the <a href="https://sites.google.com/site/orcainputlibrary/home">orca input library</a>.</p>
+<p>To submit this job, run:</p>
+<pre><code class="language-console">$ job h2o.inp 1 8
+</code></pre>
+<p>Where the <strong>1</strong> means how many machines you're using and <strong>8</strong> means the number of cores. Or more generally:</p>
+<pre><code class="language-console">$ job file.inp $nmachines $nores
+</code></pre>
+<p>Use the default values and you'll be fine (1 machine and 8 procs).</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="src/login.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
+                                                    <a rel="next" href="src/syncing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -168,10 +192,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="src/login.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
+                                    <a rel="next" href="src/syncing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                             </nav>
 
         </div>

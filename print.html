@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">1.</strong> Softwares available</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="src/login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="src/syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="src/debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="src/learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="src/contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -151,16 +151,47 @@
                     <main>
                         <p><img src="https://user-images.githubusercontent.com/60739184/162484342-2aa465bf-3c5b-49be-830e-9ec58d8d87ef.gif" alt="Galilean_moons_around_Jupiter" /></p>
 <h1 id="cluster-guide"><a class="header" href="#cluster-guide">Cluster guide</a></h1>
-<p>Documentation of the most useful resources of our cluster</p>
-<h2 id="available-programs"><a class="header" href="#available-programs">Available programs</a></h2>
-<h2 id="basic-usage"><a class="header" href="#basic-usage">Basic usage</a></h2>
-<h2 id="syncing-and-transfering-files"><a class="header" href="#syncing-and-transfering-files">Syncing and transfering files</a></h2>
-<h2 id="debugging-errors-and-jobs-not-running"><a class="header" href="#debugging-errors-and-jobs-not-running">Debugging errors and jobs not running</a></h2>
-<h2 id=""><a class="header" href="#"></a></h2>
+<p>:sunny: :ghost:  Welcome to the jupiter cluster guide! :smile: :brazil:</p>
+<p>This is the documentation of our cluster and it's resources. </p>
+<h2 id="jump-to"><a class="header" href="#jump-to">Jump to</a></h2>
+<ul>
+<li><a href="./src/login.html">Logging in and working in the cluster</a></li>
+<li><a href="./softwares.html">Softwares available</a></li>
+<li><a href="./src/syncing.html">Transfering files</a></li>
+<li><a href="./src/debugging.html">Debugging errors and failed jobs</a></li>
+<li><a href="./src/learn.html">Other resources</a></li>
+<li><a href="./src/contributing.html">Contributing</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logging-in-and-working-in-the-cluster"><a class="header" href="#logging-in-and-working-in-the-cluster">Logging in and working in the cluster</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="softwares"><a class="header" href="#softwares">Softwares</a></h1>
 <ul>
 <li>ORCA</li>
 </ul>
+<p>Usage: </p>
+<p>In your $HOME/bin folder in <a href="">jupiter</a> there should already be a <code>job</code> script that you can use directly on yout .inp files.</p>
+<p>In your .inp it should be specified both the <code>nprocs</code> and <code>maxcore</code> keywords, i.e. for a h2o_opt.inp file:</p>
+<pre><code>! HF def2-svp Opt 
+
+%pal
+nprocs 8 
+end
+
+%maxcore 2000
+
+*xyzfile h2o.xyz 0 1 
+</code></pre>
+<p>Any doubts on the input please check the <a href="https://sites.google.com/site/orcainputlibrary/home">orca input library</a>.</p>
+<p>To submit this job, run:</p>
+<pre><code class="language-console">$ job h2o.inp 1 8
+</code></pre>
+<p>Where the <strong>1</strong> means how many machines you're using and <strong>8</strong> means the number of cores. Or more generally:</p>
+<pre><code class="language-console">$ job file.inp $nmachines $nores
+</code></pre>
+<p>Use the default values and you'll be fine (1 machine and 8 procs).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transfering-files"><a class="header" href="#transfering-files">Transfering files</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-errors-and-failed-jobs"><a class="header" href="#debugging-errors-and-failed-jobs">Debugging errors and failed jobs</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="other-resources"><a class="header" href="#other-resources">Other resources</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
 
                     </main>
 
