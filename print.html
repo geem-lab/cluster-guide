@@ -201,6 +201,9 @@ end
 <pre><code class="language-console">$ job file.inp $nmachines $nprocs
 </code></pre>
 <p>Use the default values and you'll be fine (1 machine and 8 procs).</p>
+<h2 id="checking-the-status"><a class="header" href="#checking-the-status">Checking the status</a></h2>
+<pre><code class="language-console">$ qstat -as
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="transfering-files"><a class="header" href="#transfering-files">Transfering files</a></h2>
 <p>The most common way of transferring files between local and remote locations (and the easiest if you're just starting) is the <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">scp</a> command. </p>
 <p>For istance, if you want to send a <code>opt.inp</code> file located at <code>~/geem/projects</code> to a <code>/home/your_user/projects/</code> folder located in jupiter:</p>
