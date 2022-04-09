@@ -7,6 +7,11 @@ For istance, if you want to send a `opt.inp` file located at `~/geem/projects` t
 ```console 
 $ scp ~/geem/projects/opt.inp jupiter:/home/your_user/projects/ 
 ```
+This comes from:
+
+```console
+$ scp -P 2222 ~/geem/projects/opt.inp USERNAME@150.162.31.2:/home/your_user/projects/ 
+```
 
 Or the other way around, from jupiter to your local folder:
 
@@ -19,6 +24,8 @@ There are other options (for instance, [rclone](https://rclone.org/commands/rclo
 If you're using a windows machine, a good graphical interface that allows you to drag and drop files is [mobaxterm](https://mobaxterm.mobatek.net/).
 
 [Vinicius](https://github.com/caprilesport) also has a [script](https://github.com/caprilesport/scripts/blob/master/csync) that syncs and submits jobs while in your local machine, any questions talk to him. 
+
+
 
 
 
