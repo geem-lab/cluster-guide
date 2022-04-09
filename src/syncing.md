@@ -18,6 +18,8 @@ There are other options (for instance, [rclone](https://rclone.org/commands/rclo
 
 If you're using a windows machine, a good graphical interface that allows you to drag and drop files is [mobaxterm](https://mobaxterm.mobatek.net/).
 
-[Vinicius](https://github.com/caprilesport) also has a [script](https://github.com/caprilesport/scripts/blob/master/csync) that syncs and submits jobs while in your local machine, any doubts talk to him. 
+[Vinicius](https://github.com/caprilesport) also has a [script](https://github.com/caprilesport/scripts/blob/master/csync) that syncs and submits jobs while in your local machine, any questions talk to him. 
+
+
 
 
