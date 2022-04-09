@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Contributing - cluster documentation</title>
+        <title>Transfering files - cluster documentation</title>
                 
 
         <!-- Custom HTML head -->
@@ -14,21 +14,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-                <link rel="icon" href="../favicon.svg">
-                        <link rel="shortcut icon" href="../favicon.png">
-                <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-                <link rel="stylesheet" href="../css/print.css" media="print">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
         
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
         
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -38,7 +38,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "../";
+            var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="../src/login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="../softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="../src/syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="../src/debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="../src/learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="../src/contributing.html" class="active"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="syncing.html" class="active"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -116,7 +116,7 @@
                     <h1 class="menu-title">cluster documentation</h1>
 
                     <div class="right-buttons">
-                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                                                                         <a href="https://github.com/geem-lab/cluster-guide" title="Git repository" aria-label="Git repository">
@@ -148,16 +148,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
+                        <h2 id="transfering-files"><a class="header" href="#transfering-files">Transfering files</a></h2>
+<p>The most common way of transferring files between local and remote locations (and the easiest if you're just starting) is the <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">scp</a> command. </p>
+<p>For istance, if you want to send a <code>opt.inp</code> file located at <code>~/geem/projects</code> to a <code>/home/your_user/projects/</code> folder located in jupiter:</p>
+<pre><code class="language-console">$ scp ~/geem/projects/opt.inp jupiter:/home/your_user/projects/ 
+</code></pre>
+<p>Or the other way around, from jupiter to your local folder:</p>
+<pre><code class="language-console">$ scp jupiter:/home/your_user/projects/opt.out ~/geem/projects/
+</code></pre>
+<p>There are other options (for instance, <a href="https://rclone.org/commands/rclone_sync/">rclone</a>) that can be also be used to sync files between your local machine and jupiter. </p>
+<p>If you're using a windows machine, a good graphical interface that allows you to drag and drop files is <a href="https://mobaxterm.mobatek.net/">mobaxterm</a>.</p>
+<p><a href="https://github.com/caprilesport">Vinicius</a> also has a <a href="https://github.com/caprilesport/scripts/blob/master/csync">script</a> that syncs and submits jobs while in your local machine, any doubts talk to him. </p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="../src/learn.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="softwares.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
+                                                    <a rel="next" href="debugging.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -165,10 +178,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="../src/learn.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="softwares.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
+                                    <a rel="next" href="debugging.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                             </nav>
 
         </div>
@@ -181,17 +197,17 @@
         </script>
         
         
-                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
         
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-                <script type="text/javascript" src="../mermaid.min.js"></script>
-                <script type="text/javascript" src="../mermaid-init.js"></script>
+                <script type="text/javascript" src="mermaid.min.js"></script>
+                <script type="text/javascript" src="mermaid-init.js"></script>
         
         
     </body>

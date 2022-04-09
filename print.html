@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="src/login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="src/syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="src/debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="src/learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="src/contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -151,18 +151,34 @@
                     <main>
                         <p><img src="https://user-images.githubusercontent.com/60739184/162484342-2aa465bf-3c5b-49be-830e-9ec58d8d87ef.gif" alt="Galilean_moons_around_Jupiter" /></p>
 <h1 id="cluster-guide"><a class="header" href="#cluster-guide">Cluster guide</a></h1>
-<p>:sunny: :ghost:  Welcome to the jupiter cluster guide! :smile: :brazil:</p>
+<p>Welcome to the jupiter cluster guide!</p>
 <p>This is the documentation of our cluster and it's resources. </p>
+<p>To learn the basics, check out <a href="./login.html">logging in</a> and <a href="./syncing.html">transfering files</a>.</p>
+<p>To see our available software and how to use them, check out the <a href="./softwares.html">softwares</a> page.</p>
+<p>If you feel like this site could be better, please <a href="./contributing.html">contribute</a>.</p>
 <h2 id="jump-to"><a class="header" href="#jump-to">Jump to</a></h2>
 <ul>
-<li><a href="./src/login.html">Logging in and working in the cluster</a></li>
+<li><a href="./login.html">Logging in and working in the cluster</a></li>
 <li><a href="./softwares.html">Softwares available</a></li>
-<li><a href="./src/syncing.html">Transfering files</a></li>
-<li><a href="./src/debugging.html">Debugging errors and failed jobs</a></li>
-<li><a href="./src/learn.html">Other resources</a></li>
-<li><a href="./src/contributing.html">Contributing</a></li>
+<li><a href="./syncing.html">Transfering files</a></li>
+<li><a href="./debugging.html">Debugging errors and failed jobs</a></li>
+<li><a href="./learn.html">Other resources</a></li>
+<li><a href="./contributing.html">Contributing</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="logging-in-and-working-in-the-cluster"><a class="header" href="#logging-in-and-working-in-the-cluster">Logging in and working in the cluster</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="basic-usage"><a class="header" href="#basic-usage">Basic usage</a></h2>
+<p>Ask for Prof. Giovanni for a user, if one is granted you can login to the cluster using IP:150.162.31.2 and Port:2222 as follows.</p>
+<pre><code class="language-console">$ ssh your_user@150.162.31.2 -p 2222
+</code></pre>
+<p>When logging in the cluster for the first time, please update your password to a <a href="https://edu.gcfglobal.org/en/internetsafety/creating-strong-passwords/1/">strong</a> one.</p>
+<p>If you don't want to remember the port and the ip everytime you login, you can <a href="https://linuxize.com/post/using-the-ssh-config-file/">register</a> this remote location in your ~/.ssh/config file (you can change jupiter for any name of your choice).</p>
+<pre><code>Host jupiter
+    HostName 150.162.31.2
+    User your_user
+    Port 2222
+</code></pre>
+<p>Now you can login with:</p>
+<pre><code class="language-console">$ ssh jupiter
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="softwares"><a class="header" href="#softwares">Softwares</a></h1>
 <ul>
 <li>ORCA</li>
@@ -188,10 +204,35 @@ end
 <pre><code class="language-console">$ job file.inp $nmachines $nores
 </code></pre>
 <p>Use the default values and you'll be fine (1 machine and 8 procs).</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="transfering-files"><a class="header" href="#transfering-files">Transfering files</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-errors-and-failed-jobs"><a class="header" href="#debugging-errors-and-failed-jobs">Debugging errors and failed jobs</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="transfering-files"><a class="header" href="#transfering-files">Transfering files</a></h2>
+<p>The most common way of transferring files between local and remote locations (and the easiest if you're just starting) is the <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">scp</a> command. </p>
+<p>For istance, if you want to send a <code>opt.inp</code> file located at <code>~/geem/projects</code> to a <code>/home/your_user/projects/</code> folder located in jupiter:</p>
+<pre><code class="language-console">$ scp ~/geem/projects/opt.inp jupiter:/home/your_user/projects/ 
+</code></pre>
+<p>Or the other way around, from jupiter to your local folder:</p>
+<pre><code class="language-console">$ scp jupiter:/home/your_user/projects/opt.out ~/geem/projects/
+</code></pre>
+<p>There are other options (for instance, <a href="https://rclone.org/commands/rclone_sync/">rclone</a>) that can be also be used to sync files between your local machine and jupiter. </p>
+<p>If you're using a windows machine, a good graphical interface that allows you to drag and drop files is <a href="https://mobaxterm.mobatek.net/">mobaxterm</a>.</p>
+<p><a href="https://github.com/caprilesport">Vinicius</a> also has a <a href="https://github.com/caprilesport/scripts/blob/master/csync">script</a> that syncs and submits jobs while in your local machine, any doubts talk to him. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-errors-and-jobs-not-running"><a class="header" href="#debugging-errors-and-jobs-not-running">Debugging errors and jobs not running</a></h1>
+<p>Sometimes your jobs will fail (I know, sucks :cry:), if you ever find yourself questioning why that happen this may help you: </p>
+<p>TODO: Add some quick tips on checking what machine your job was running, sshing to the nodes and checking temperature and htop, etc...</p>
+<h2 id="asking-for-help"><a class="header" href="#asking-for-help">Asking for help</a></h2>
+<p>If you ever cant understand what the hell is going on, or if you ever identify some kind of issue in the cluster, please <a href="https://github.com/geem-lab/cluster/issues/new/choose">open an issue</a> in our <a href="https://github.com/geem-lab/cluster">cluster</a> repository, this way we can keep track of what is happening and also have an archive for the solutions, if the problems ever happen again. </p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="other-resources"><a class="header" href="#other-resources">Other resources</a></h1>
+<p>Here are listed some useful resources if you're just starting out in the linux world. </p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
+<p>This site is <a href="https://opensource.guide/how-to-contribute/">open source</a> and made by your dearest <a href="https://github.com/geem-lab/cluster-guide/graphs/contributors">lab colleagues</a>, if you feel like there should be more information, tutorials and guides here feel free to <a href="https://github.com/geem-lab/cluster-guide">contribute</a>. :smile:</p>
 
                     </main>
 
