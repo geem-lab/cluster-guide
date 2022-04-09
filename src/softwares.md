@@ -28,10 +28,10 @@ To submit this job, run:
 $ job h2o.inp 1 8
 ``` 
 
-Where the **1** means how many machines you're using and **8** means the number of cores. Or more generally:
+Where the **1** means how many machines you're using and **8** means the number of procs. Or more generally:
 
 ```console
-$ job file.inp $nmachines $nores
+$ job file.inp $nmachines $nprocs
 ```
 
 Use the default values and you'll be fine (1 machine and 8 procs).
