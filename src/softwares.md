@@ -36,3 +36,10 @@ $ job file.inp $nmachines $nprocs
 
 Use the default values and you'll be fine (1 machine and 8 procs).
 
+## Checking the status
+
+```console
+$ qstat -as
+```
+
+
