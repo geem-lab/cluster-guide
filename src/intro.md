@@ -6,12 +6,6 @@ Welcome to the jupiter cluster guide!
 
 This is the documentation of our cluster and it's resources. 
 
-To learn the basics, check out [logging in](./login.md) and [transfering files](./syncing.md).
-
-To see our available software and how to use them, check out the [softwares](./softwares.md) page.
-
-If you feel like this site could be better, please [contribute](./contributing.md).
-
 ## Jump to 
 
 - [Logging in and working in the cluster](./login.md)
