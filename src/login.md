@@ -22,3 +22,4 @@ Now you can login with:
 $ ssh jupiter
 ```
 
+You can also set a passwordless connection by [creating a key and making it available in **jupiter**](https://phoenixnap.com/kb/setup-passwordless-ssh).
