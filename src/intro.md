@@ -9,9 +9,10 @@ This is the documentation of our cluster and it's resources.
 ## Jump to 
 
 - [Logging in and working in the cluster](./login.md)
-- [Softwares available](./softwares.md)
 - [Transfering files](./syncing.md)
 - [Debugging errors and failed jobs](./debugging.md)
-- [Other resources](./learn.md)
+- [A first look into the linux world](bash.md)
+- [Softwares available](./softwares.md)
+- [Other resources](./resources.md)
 - [Contributing](./contributing.md)
 

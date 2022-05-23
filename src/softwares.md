@@ -1,6 +1,6 @@
 # Softwares
 
-- ORCA
+## ORCA
 
 Usage: 
 
@@ -36,10 +36,24 @@ $ job file.inp $nmachines $nprocs
 
 Use the default values and you'll be fine (1 machine and 8 procs).
 
-## Checking the status
+## Checking a job status
+
+```console
+$ qstat 
+```
+
+Or if you want information only on your submitted jobs:
+
+```console
+$ qstat -u $USER
+```
+
+Where `$USER` is your cluster username.
+
+These command just prints the queue usage without some information that is useful for debugging some failed jobs. To receive more information (for instance on the node your job is running) run:
 
 ```console
 $ qstat -as
-```
+``` 
 
 
