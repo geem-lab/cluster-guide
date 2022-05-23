@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="bash.html"><strong aria-hidden="true">5.</strong> Basics of unix terminal</a></li><li class="chapter-item expanded "><a href="resources.html"><strong aria-hidden="true">6.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">7.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -156,14 +156,15 @@
 <h2 id="jump-to"><a class="header" href="#jump-to">Jump to</a></h2>
 <ul>
 <li><a href="./login.html">Logging in and working in the cluster</a></li>
-<li><a href="./softwares.html">Softwares available</a></li>
 <li><a href="./syncing.html">Transfering files</a></li>
 <li><a href="./debugging.html">Debugging errors and failed jobs</a></li>
-<li><a href="./learn.html">Other resources</a></li>
+<li><a href="bash.html">A first look into the linux world</a></li>
+<li><a href="./softwares.html">Softwares available</a></li>
+<li><a href="./resources.html">Other resources</a></li>
 <li><a href="./contributing.html">Contributing</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="basic-usage"><a class="header" href="#basic-usage">Basic usage</a></h2>
-<p>Ask for Prof. Giovanni for a user, if one is granted you can login to the cluster using IP:150.162.31.2 and Port:2222 as follows.</p>
+<p>Ask Prof. Giovanni for a user, if one is granted you can login to the cluster using IP:150.162.31.2 and Port:2222 as follows.</p>
 <pre><code class="language-console">$ ssh your_user@150.162.31.2 -p 2222
 </code></pre>
 <p>When logging in the cluster for the first time, please update your password to a <a href="https://edu.gcfglobal.org/en/internetsafety/creating-strong-passwords/1/">strong</a> one.</p>
@@ -176,10 +177,9 @@
 <p>Now you can login with:</p>
 <pre><code class="language-console">$ ssh jupiter
 </code></pre>
+<p>You can also set a passwordless connection by <a href="https://phoenixnap.com/kb/setup-passwordless-ssh">creating a key and making it available in <strong>jupiter</strong></a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="softwares"><a class="header" href="#softwares">Softwares</a></h1>
-<ul>
-<li>ORCA</li>
-</ul>
+<h2 id="orca"><a class="header" href="#orca">ORCA</a></h2>
 <p>Usage: </p>
 <p>In your $HOME/bin folder in <a href="">jupiter</a> there should already be a <code>job</code> script that you can use directly on yout .inp files.</p>
 <p>In your .inp it should be specified both the <code>nprocs</code> and <code>maxcore</code> keywords, i.e. for a h2o_opt.inp file:</p>
@@ -201,7 +201,14 @@ end
 <pre><code class="language-console">$ job file.inp $nmachines $nprocs
 </code></pre>
 <p>Use the default values and you'll be fine (1 machine and 8 procs).</p>
-<h2 id="checking-the-status"><a class="header" href="#checking-the-status">Checking the status</a></h2>
+<h2 id="checking-a-job-status"><a class="header" href="#checking-a-job-status">Checking a job status</a></h2>
+<pre><code class="language-console">$ qstat 
+</code></pre>
+<p>Or if you want information only on your submitted jobs:</p>
+<pre><code class="language-console">$ qstat -u $USER
+</code></pre>
+<p>Where <code>$USER</code> is your cluster username.</p>
+<p>These command just prints the queue usage without some information that is useful for debugging some failed jobs. To receive more information (for instance on the node your job is running) run:</p>
 <pre><code class="language-console">$ qstat -as
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="transfering-files"><a class="header" href="#transfering-files">Transfering files</a></h2>
@@ -219,11 +226,40 @@ end
 <p>If you're using a windows machine, a good graphical interface that allows you to drag and drop files is <a href="https://mobaxterm.mobatek.net/">mobaxterm</a>.</p>
 <p><a href="https://github.com/caprilesport">Vinicius</a> also has a <a href="https://github.com/caprilesport/scripts/blob/master/csync">script</a> that syncs and submits jobs while in your local machine, any questions talk to him. </p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-errors-and-jobs-not-running"><a class="header" href="#debugging-errors-and-jobs-not-running">Debugging errors and jobs not running</a></h1>
-<p>Sometimes your jobs will fail (I know, sucks :cry:), if you ever find yourself questioning why that happen this may help you: </p>
-<p>TODO: Add some quick tips on checking what machine your job was running, sshing to the nodes and checking temperature and htop, etc...</p>
+<p>Sometimes your jobs will fail (I know, sucks!), if you ever find yourself questioning why that happen this may help you: </p>
+<p>First thing to do is to check if your job failed because of some issue related to orca, to do that open the output file in your favorite text-editor and look at the last lines. A quick alternative is to use the <code>tail</code> command, which shows you the last lines of a file. </p>
+<p>If some error happened in a SCF procedure (if the issue is related to orca itself) you should see some error message at the very bottom of the output file. This error should at least clarify what went wrong in your calculation.</p>
+<p>If the output file doesn't contain any error at the end of the file, then the issue might be hardware related. In this case, try to do the following:</p>
+<ul>
+<li>Resubmit the job and check in what node your job is being run (do that by issuing the <code>qstat -as</code> command, once it starts you can see information on what node is running your job), for example:</li>
+</ul>
+<pre><code>                                                            Req'd  Req'd   Elap
+Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+--------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+5090.ufsc       giliand* ufsc     tetrazol_*   7964   1   8   10gb 120:0 R 00:59
+   Job run at Mon Apr 25 at 10:47 on (himalia:ncpus=8:mem=10485760kb)
+5119.ufsc       giliand* ufsc     14_hess.i* 306745   1   8   10gb 120:0 R 32:23
+   Job run at Tue Apr 26 at 22:13 on (io:ncpus=8:mem=10485760kb)
+</code></pre>
+<p>In this situation, the job 5090.ufsc is running on <em><strong>himalia</strong></em> and the job 5119.ufsc is running on <em><strong>io</strong></em>.</p>
+<ul>
+<li>Connect through ssh to that node while logged in jupiter (<code>ssh himalia</code> for example) and check for temperature issues (running <code>sensors</code>). If you see the temperature of the CPU core's reaching 100 degrees, please contact <a href="">matheus</a> or <a href="">vinicius</a>.</li>
+</ul>
 <h2 id="asking-for-help"><a class="header" href="#asking-for-help">Asking for help</a></h2>
 <p>If you ever cant understand what the hell is going on, or if you ever identify some kind of issue in the cluster, please <a href="https://github.com/geem-lab/cluster/issues/new/choose">open an issue</a> in our <a href="https://github.com/geem-lab/cluster">cluster</a> repository, this way we can keep track of what is happening and also have an archive for the solutions, if the problems ever happen again. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-first-look-into-the-linux-world"><a class="header" href="#a-first-look-into-the-linux-world">A first look into the linux world</a></h1>
+<p>You may soon realise that you're now entering a field where we're generally looking at a command line. Don't worry, you'll soon get very used to it and learn to love it. 😄</p>
+<p><a href="http://linuxcommand.org/lc3_learning_the_shell.php">There are good reasons to use a terminal</a> insted of GUI's (graphical user interfaces), but I will assume that if you're here you already have a slight idea about that. </p>
+<p>For now I will only leave this quote here:</p>
+<blockquote>
+<p>I once heard an author say that when you are a child you use a computer by looking at the pictures. When you grow up, you learn to read and write. </p>
+</blockquote>
+<p>Also, here are some articles explaining the basics of using a unix terminal, if you're new to this world:</p>
+<p>https://ubuntu.com/tutorials/command-line-for-beginners#4-creating-folders-and-files
+https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal
+https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="other-resources"><a class="header" href="#other-resources">Other resources</a></h1>
+<p>Right now we've only got acces to jupiter and Tarsus (there will be a tutorial on using Tarsus too, dont worry), but soon we will have acces to cesup and Santos-Dumont.</p>
 <ul>
 <li>CESUP</li>
 <li>Tarsus (Franca-SP)</li>

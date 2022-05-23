@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html" class="active"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="learn.html"><strong aria-hidden="true">5.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">6.</strong> Contributing</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="login.html"><strong aria-hidden="true">1.</strong> Logging in and working in the cluster</a></li><li class="chapter-item expanded "><a href="softwares.html" class="active"><strong aria-hidden="true">2.</strong> Softwares available</a></li><li class="chapter-item expanded "><a href="syncing.html"><strong aria-hidden="true">3.</strong> Transfering files</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">4.</strong> Debugging errors and failed jobs</a></li><li class="chapter-item expanded "><a href="bash.html"><strong aria-hidden="true">5.</strong> Basics of unix terminal</a></li><li class="chapter-item expanded "><a href="resources.html"><strong aria-hidden="true">6.</strong> Other resources</a></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">7.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -149,9 +149,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="softwares"><a class="header" href="#softwares">Softwares</a></h1>
-<ul>
-<li>ORCA</li>
-</ul>
+<h2 id="orca"><a class="header" href="#orca">ORCA</a></h2>
 <p>Usage: </p>
 <p>In your $HOME/bin folder in <a href="">jupiter</a> there should already be a <code>job</code> script that you can use directly on yout .inp files.</p>
 <p>In your .inp it should be specified both the <code>nprocs</code> and <code>maxcore</code> keywords, i.e. for a h2o_opt.inp file:</p>
@@ -173,7 +171,14 @@ end
 <pre><code class="language-console">$ job file.inp $nmachines $nprocs
 </code></pre>
 <p>Use the default values and you'll be fine (1 machine and 8 procs).</p>
-<h2 id="checking-the-status"><a class="header" href="#checking-the-status">Checking the status</a></h2>
+<h2 id="checking-a-job-status"><a class="header" href="#checking-a-job-status">Checking a job status</a></h2>
+<pre><code class="language-console">$ qstat 
+</code></pre>
+<p>Or if you want information only on your submitted jobs:</p>
+<pre><code class="language-console">$ qstat -u $USER
+</code></pre>
+<p>Where <code>$USER</code> is your cluster username.</p>
+<p>These command just prints the queue usage without some information that is useful for debugging some failed jobs. To receive more information (for instance on the node your job is running) run:</p>
 <pre><code class="language-console">$ qstat -as
 </code></pre>
 
