@@ -1,10 +1,11 @@
 ## Basic usage 
 
-Ask for Prof. Giovanni for a user, if one is granted you can login to the cluster using IP:150.162.31.2 and Port:2222 as follows.
+Ask Prof. Giovanni for a user, if one is granted you can login to the cluster using IP:150.162.31.2 and Port:2222 as follows.
 
 ```console
 $ ssh your_user@150.162.31.2 -p 2222
 ``` 
+
 When logging in the cluster for the first time, please update your password to a [strong](https://edu.gcfglobal.org/en/internetsafety/creating-strong-passwords/1/) one.
 
 If you don't want to remember the port and the ip everytime you login, you can [register](https://linuxize.com/post/using-the-ssh-config-file/) this remote location in your ~/.ssh/config file (you can change jupiter for any name of your choice).

@@ -13,6 +13,6 @@ This is the documentation of our cluster and it's resources.
 - [Debugging errors and failed jobs](./debugging.md)
 - [A first look into the linux world](bash.md)
 - [Softwares available](./softwares.md)
-- [Other resources](./learn.md)
+- [Other resources](./resources.md)
 - [Contributing](./contributing.md)
 
