@@ -11,6 +11,9 @@ For now I will only leave this quote here:
 Also, here are some articles explaining the basics of using a unix terminal, if you're new to this world:
 
 https://ubuntu.com/tutorials/command-line-for-beginners#4-creating-folders-and-files
+
 https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal
+
 https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners
+
 
